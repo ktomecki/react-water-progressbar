@@ -1,13 +1,13 @@
-# react-water-loader
+# react-water-progressbar
 
 > Made with create-react-library
 
-[![NPM](https://img.shields.io/npm/v/react-water-loader.svg)](https://www.npmjs.com/package/react-water-loader) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-water-progressbar.svg)](https://www.npmjs.com/package/react-water-progressbar) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save react-water-loader
+npm install --save react-water-progressbar
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ npm install --save react-water-loader
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-water-loader'
-import 'react-water-loader/dist/index.css'
+import MyComponent from 'react-water-progressbar'
+import 'react-water-progressbar/dist/index.css'
 
 class Example extends Component {
   render() {

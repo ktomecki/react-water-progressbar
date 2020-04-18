@@ -1,13 +1,15 @@
 {
-  "name": "react-water-loader-example",
-  "homepage": "https://ktomecki.github.io/react-water-loader",
+  "name": "react-water-progressbar-example",
+  "homepage": "https://ktomecki.github.io/react-water-progressbar",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "react": "file:../node_modules/react",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
-    "react-water-loader": "file:.."
+    "react-water-progressbar": "file:.."
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

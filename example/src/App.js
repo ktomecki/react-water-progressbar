@@ -1,10 +1,41 @@
 import React from 'react'
 
-import { ExampleComponent } from 'react-water-loader'
-import 'react-water-loader/dist/index.css'
+import Loader from 'react-water-progressbar'
+import { Container, Card, Form } from 'react-bootstrap'
 
-const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+
+function Example({ title, description, children }) {
+  return (
+    <Card>
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        {children}
+      </Card.Body>
+    </Card>
+  )
 }
 
-export default App
+export default function App() {
+  const [value, setValue] = React.useState(50)
+
+  return (
+    <Container style={{ maxWidth: 800, marginTop: 50 }}>
+      <Example>
+
+        <Form>
+          <Form.Group controlId="formBasicRange">
+            <Form.Label>Range</Form.Label>
+            <Form.Control type="range" value={value} onChange={e => setValue(e.target.value)}/>
+          </Form.Group>
+        </Form>
+        <Loader
+          percent={value}
+          text={`${value} %`}
+        />
+      </Example>
+
+    </Container>
+
+  )
+}

@@ -16,13 +16,47 @@ function Example({ title, description, children }) {
   )
 }
 
+function PasswordExample() {
+  const [value, setValue] = React.useState("")
+  const isLength = React.useMemo(() => value.length > 10, [value])
+  const isbigAndSmall = React.useMemo(() => (/[a-z]/.test(value)) && (/[A-Z]/.test(value)), [value])
+  const isSpecial = React.useMemo(() =>  (/[!@#$%^&*(),.?":{}|<>]/.test(value)), [value])
+  const isNumber = React.useMemo(() => (/[0-9]/.test(value)), [value])
+
+  const sum = (isLength + isbigAndSmall + isSpecial + isNumber)
+  const points = sum / 4.0 * 100
+  const icon = [
+    "👎",
+    "🙏",
+    "👌",
+    "💪",
+    "🔥"
+  ][sum]
+
+  return (
+    <Example>
+      <Form.Control type="text" value={value} onChange={e => setValue(e.target.value)}/>
+      {points}
+      <Loader
+        percent={points}
+        text={icon}
+        items={[
+          {done: isLength, component: "Length > 10"},
+          {done: isbigAndSmall, component: "Contains Upper and Lowercase"},
+          {done: isSpecial, component: "Contains special chars"},
+          {done: isNumber, component: "Contains numeric chars"},
+        ]}
+      />
+    </Example>
+  )
+}
+
 export default function App() {
   const [value, setValue] = React.useState(50)
 
   return (
     <Container style={{ maxWidth: 800, marginTop: 50 }}>
       <Example>
-
         <Form>
           <Form.Group controlId="formBasicRange">
             <Form.Label>Range</Form.Label>
@@ -48,6 +82,8 @@ export default function App() {
           
         </div>
       </Example>
+
+      <PasswordExample/>
 
     </Container>
 

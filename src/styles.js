@@ -4,7 +4,8 @@ export function defaultStyles() {
     return {
         container: {
             display: 'block',
-            filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.2))'
+            filter: 'drop-shadow(0 0 2px rgba(0, 0, 0, 0.2))',
+            zIndex: 100
         },
         slider: {
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -28,7 +29,8 @@ export function defaultStyles() {
             display: 'inline-block', 
             position: 'relative', 
             padding: 0, 
-            margin: 0
+            margin: 0,
+            transform: 'translateY(-2px)'
         },
         text: {
             textAlign: 'center', 
@@ -43,22 +45,21 @@ export function defaultStyles() {
         },
         card: {
             display: 'block',
-            zIndex: 900, 
             borderBottom: '1px solid hsl(0, 0%, 90%)', 
             borderLeft: '1px solid hsl(0, 0%, 90%)', 
             borderRight: '1px solid hsl(0, 0%, 90%)', 
             borderRadius: '0 0 10px 10px',
             position: 'absolute',
-            boxShadow: '0px 1px 2px 0px hsl(0, 0%, 90%)',
             overflowY: 'hidden', 
             fontSize: '0.9em', 
-            transition: 'height 0.5s ease-in-out'
+            transition: 'height 0.2s ease-in-out',
         },
         cardFlex: {
             display: 'flex', 
             flexDirection: 'column', 
             backgroundColor: 'hsl(0, 0%, 90%)', 
             borderRadius: '0 0 10px 10px',
+            
         },
         cardTodo: {
             color: 'hsl(0, 0%, 60%)',

@@ -27,6 +27,28 @@ export function useAnimationFrames(array, time, initialValue) {
   return [value, start]
 }
 
+export function useTransition(destination, duration) {
+  const [value, setValue] = React.useState(destination)
+  const timeout = React.useRef()
+  const tick = 25
+
+  function f(time) {
+    timeout.current = setTimeout(() => {
+      setValue(v => v + (time/duration * (destination-v)))
+      if(time < duration)
+        f(time+tick)
+    }, tick)
+  }
+
+  React.useEffect(() => {
+    clearTimeout(timeout.current)
+    f(0)
+  }, [destination])
+
+  //console.log(duration)
+  return value
+}
+
 function rgbToHsl(r, g, b) {
   r /= 255, g /= 255, b /= 255;
   var max = Math.max(r, g, b), min = Math.min(r, g, b);
@@ -81,8 +103,8 @@ export function generateGradient(colors) {
     color.push(`rgb(${data[0]} ${data[1]} ${data[2]})`)
     const [h, s, l] = rgbToHsl(data[0], data[1], data[2])
 
-    const lAccent = (l > 0.5) ? darken(l, 0.2) : lighten(l, 0.2)
-    const lText = (l > 0.5) ? darken(l, 0.8) : lighten(l, 0.8)
+    const lAccent = (l > 0.5) ? darken(l, 0.1) : lighten(l, 0.1)
+    const lText = (l > 0.5) ? darken(l, 0.5) : lighten(l, 0.8)
 
     accent.push(`hsl(${parseInt(h * 360.0)}, ${parseInt(s * 100.0)}%, ${parseInt(lAccent * 100)}%)`)
     text.push(`hsl(${parseInt(h * 360.0)}, ${parseInt(s * 100.0)}%, ${parseInt(lText * 100)}%)`)

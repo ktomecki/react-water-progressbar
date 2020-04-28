@@ -1,91 +1,70 @@
 import React from 'react'
 
-import Loader from 'react-water-progressbar'
+import Progressbar from 'react-water-progressbar'
 import { Container, Card, Form } from 'react-bootstrap'
+import Example1 from './Example1'
+import Example2 from './Example2'
+import Example3 from './Example3'
 
+function Presentation() {
+  const elements = [
+    "Ex1",
+    "Ex2",
+    "Ex3"
+  ]
+  const len = elements.length
+  const [percent, increment] = React.useReducer((prev, _) => {
+    return prev >= len ? 0 : prev+1
+  }, 0)
 
-function Example({ title, description, children }) {
+  React.useEffect(() => {
+    setInterval(() => {
+      increment()
+    }, 2000)
+  }, [])
+
+  const p = parseInt(percent/len*100.0)
   return (
-    <Card>
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-        {children}
-      </Card.Body>
-    </Card>
+    <Progressbar
+      percent={p}
+      text={`${p} %`}
+      percentTransition
+      items={elements.map((el, index) => {
+        return {
+          done: index < percent,
+          component: el
+        }
+      })}
+    />
   )
 }
 
-function PasswordExample() {
-  const [value, setValue] = React.useState("")
-  const isLength = React.useMemo(() => value.length > 10, [value])
-  const isbigAndSmall = React.useMemo(() => (/[a-z]/.test(value)) && (/[A-Z]/.test(value)), [value])
-  const isSpecial = React.useMemo(() =>  (/[!@#$%^&*(),.?":{}|<>]/.test(value)), [value])
-  const isNumber = React.useMemo(() => (/[0-9]/.test(value)), [value])
 
-  const sum = (isLength + isbigAndSmall + isSpecial + isNumber)
-  const points = sum / 4.0 * 100
-  const icon = [
-    "👎",
-    "🙏",
-    "👌",
-    "💪",
-    "🔥"
-  ][sum]
-
-  return (
-    <Example>
-      <Form.Control type="text" value={value} onChange={e => setValue(e.target.value)}/>
-      {points}
-      <Loader
-        percent={points}
-        text={icon}
-        items={[
-          {done: isLength, component: "Length > 10"},
-          {done: isbigAndSmall, component: "Contains Upper and Lowercase"},
-          {done: isSpecial, component: "Contains special chars"},
-          {done: isNumber, component: "Contains numeric chars"},
-        ]}
-      />
-    </Example>
-  )
-}
 
 export default function App() {
   const [value, setValue] = React.useState(50)
 
   return (
-    <Container style={{ maxWidth: 800, marginTop: 50 }}>
-      <Example>
-        <Form>
-          <Form.Group controlId="formBasicRange">
-            <Form.Label>Range</Form.Label>
-            <Form.Control type="range" value={value} onChange={e => setValue(e.target.value)}/>
-          </Form.Group>
-        </Form>
-        <Loader
-          percent={value}
-          text={`${value} %`}
-          items={[
-            {done: value > 15, component: "Example 1"},
-            {done: value > 30, component: "Example 2"},
-            {done: value > 45, component: "Example 3"},
-            {done: value > 60, component: "Example 4"},
-            {done: value > 75, component: "Example 5, Example 5, Example 5, Example 5"},
-            {done: value > 90, component: "Example 6"},
-            {done: value >= 100, component: "Example 7"},
-          ]}
-        />
-        asdasd
-        <br/>
-        <div style={{height: 120, fontSize: 50, backgroundColor: 'green'}}>
-          
-        </div>
-      </Example>
+    <div>
+      <div style={{ background: 'linear-gradient(#005f98, #598cef)', padding: 50 }}>
+        <Container style={{color: 'rgba(0, 0, 0, 0.7)'}}>
+          <h1><b>react-water-progressbar</b> demo</h1>
+          <a style={{textDecoration: 'none', color: 'rgba(0, 0, 0, 0.7)'}} target="_blank" href="https://github.com/ktomecki/react-water-progressbar">GitHub</a>
+          {" | "}
+          <a target="_blank" href="https://www.npmjs.com/package/react-water-progressbar" alt="NPM"><img src="https://img.shields.io/npm/v/react-water-progressbar.svg" /></a>
+          <br />
+          <br />
+          {/* <Presentation/> */}
+        </Container>
+      </div>
+      <Container style={{ maxWidth: 800, marginTop: 50 }}>
+        <Example1 />
+        <Example2 />
+        <Example3 />
 
-      <PasswordExample/>
+      </Container>
+    </div>
 
-    </Container>
 
   )
 }

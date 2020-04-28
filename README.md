@@ -9,7 +9,7 @@
 npm install --save react-water-progressbar
 ```
 
-##Demo
+## Demo
 [custom-item-select](https://ktomecki.github.io/react-water-progressbar/)
 
 ![Progressbar with stages description](example1.gif)

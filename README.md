@@ -8,8 +8,7 @@
 ```bash
 npm install --save react-water-progressbar
 ```
-
-![Progressbar with stages description](example1.gif)
+<img src="example1.gif" height="100">
 
 ## Usage
 

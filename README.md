@@ -9,6 +9,9 @@
 npm install --save react-water-progressbar
 ```
 
+##Demo
+[custom-item-select](https://ktomecki.github.io/react-water-progressbar/)
+
 ![Progressbar with stages description](example1.gif)
 ![Progressbar as password strength meter](example2.gif)
 

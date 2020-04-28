@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-water-progressbar/static/css/main.42cc8b22.chunk.css",
+    "main.js": "/react-water-progressbar/static/js/main.ddb97246.chunk.js",
+    "main.js.map": "/react-water-progressbar/static/js/main.ddb97246.chunk.js.map",
+    "runtime-main.js": "/react-water-progressbar/static/js/runtime-main.e7e3d8d8.js",
+    "runtime-main.js.map": "/react-water-progressbar/static/js/runtime-main.e7e3d8d8.js.map",
+    "static/css/2.a5b4ddd2.chunk.css": "/react-water-progressbar/static/css/2.a5b4ddd2.chunk.css",
+    "static/js/2.fa947d82.chunk.js": "/react-water-progressbar/static/js/2.fa947d82.chunk.js",
+    "static/js/2.fa947d82.chunk.js.map": "/react-water-progressbar/static/js/2.fa947d82.chunk.js.map",
+    "index.html": "/react-water-progressbar/index.html",
+    "precache-manifest.e539dcad73229f9cb32f163cccf88d9a.js": "/react-water-progressbar/precache-manifest.e539dcad73229f9cb32f163cccf88d9a.js",
+    "service-worker.js": "/react-water-progressbar/service-worker.js",
+    "static/css/2.a5b4ddd2.chunk.css.map": "/react-water-progressbar/static/css/2.a5b4ddd2.chunk.css.map",
+    "static/css/main.42cc8b22.chunk.css.map": "/react-water-progressbar/static/css/main.42cc8b22.chunk.css.map",
+    "static/js/2.fa947d82.chunk.js.LICENSE.txt": "/react-water-progressbar/static/js/2.fa947d82.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e7e3d8d8.js",
+    "static/css/2.a5b4ddd2.chunk.css",
+    "static/js/2.fa947d82.chunk.js",
+    "static/css/main.42cc8b22.chunk.css",
+    "static/js/main.ddb97246.chunk.js"
+  ]
+}

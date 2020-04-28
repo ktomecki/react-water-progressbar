@@ -8,20 +8,38 @@
 ```bash
 npm install --save react-water-progressbar
 ```
-<img src="example1.gif" height="100">
+
+![Progressbar with stages description](example1.gif)
+![Progressbar as password strength meter](example2.gif)
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
+import { Example } from './utils'
 
-import MyComponent from 'react-water-progressbar'
-import 'react-water-progressbar/dist/index.css'
+import Progressbar from 'react-water-progressbar'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export default function () {
+    const [value, setValue] = React.useState(50)
+    return (
+        <Example>
+            <h4>Progressbar with stages description</h4>
+            Set example value of range<br/>
+            <input style={{width: '100%'}} type="range" value={value} onChange={e => setValue(e.target.value)} />
+            <Progressbar
+                percent={value}
+                text={`${value} %`}
+                items={[
+                    { done: value > 20, component: "Stage 1" },
+                    { done: value > 40, component: "Stage 2" },
+                    { done: value > 60, component: "Stage 3" },
+                    { done: value > 80, component: "Stage 4" },
+                    { done: value > 99, component: "Stage 5" }
+                ]}
+            />
+        </Example>
+    )
 }
 ```
 

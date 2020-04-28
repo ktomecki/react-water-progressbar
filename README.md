@@ -1,8 +1,5 @@
 # react-water-progressbar
 
-> Under development. Coming soon.
-
-> Made with create-react-library
 
 [![NPM](https://img.shields.io/npm/v/react-water-progressbar.svg)](https://www.npmjs.com/package/react-water-progressbar) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -11,6 +8,8 @@
 ```bash
 npm install --save react-water-progressbar
 ```
+
+![Progressbar with stages description](example1.gif)
 
 ## Usage
 
@@ -26,6 +25,8 @@ class Example extends Component {
   }
 }
 ```
+
+> Made with create-react-library
 
 ## License
 

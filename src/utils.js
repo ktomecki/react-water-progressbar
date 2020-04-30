@@ -8,47 +8,6 @@ export function OneSide({ color }) {
   )
 }
 
-export function useAnimationFrames(array, time, initialValue) {
-  const [value, setValue] = React.useState(initialValue)
-  const timeout = React.useRef()
-  function f(i) {
-    setTimeout(() => {
-      setValue(array[i])
-      if (i < array.length - 1)
-        f(i + 1)
-      else
-        timeout.current = null
-    }, time)
-  }
-  const start = () => {
-    if (timeout.current == null)
-      f(0)
-  }
-  return [value, start]
-}
-
-export function useTransition(destination, duration) {
-  const [value, setValue] = React.useState(destination)
-  const timeout = React.useRef()
-  const tick = 25
-
-  function f(time) {
-    timeout.current = setTimeout(() => {
-      setValue(v => v + (time/duration * (destination-v)))
-      if(time < duration)
-        f(time+tick)
-    }, tick)
-  }
-
-  React.useEffect(() => {
-    clearTimeout(timeout.current)
-    f(0)
-  }, [destination])
-
-  //console.log(duration)
-  return value
-}
-
 function rgbToHsl(r, g, b) {
   r /= 255, g /= 255, b /= 255;
   var max = Math.max(r, g, b), min = Math.min(r, g, b);

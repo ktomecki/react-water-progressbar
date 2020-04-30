@@ -1,7 +1,8 @@
 import React from 'react'
 import { defaultStyles } from './styles'
-import { useAnimationFrames, OneSide, useColors, useHover, Wave, useTransition } from './utils'
+import { OneSide, useColors, Wave } from './utils'
 import { Context } from './Context'
+import { useHover, useTransition, useAnimationFrames } from 'react-my-hooks'
 
 const defaultGradient = [
   { color: '#005f98', offset: 0 },
@@ -79,7 +80,8 @@ export default function ({
   const [sliderHeight, startSliderAnimation] = useAnimationFrames([5.0, 3.0, 5.0], 100, 1.0)
   const dropRef = React.useRef()
   const [color, accentColor, textColor] = useColors(gradient, percentValue)
-  const [hoverRef, isHovered] = useHover();
+  const hoverRef = React.useRef()
+  const isHovered = useHover(hoverRef);
 
   React.useEffect(() => {
     startSliderAnimation()

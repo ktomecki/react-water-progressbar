@@ -1,6 +1,6 @@
 {
   "name": "react-water-progressbar",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Made with create-react-library",
   "author": "ktomecki",
   "license": "MIT",
@@ -48,5 +48,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "react-my-hooks": "^0.2.0"
+  }
 }
